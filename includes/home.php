@@ -1,4 +1,4 @@
-<div class="home-page-container">
+<div class="container">
   <img src="./assets/images/newJob.svg" alt="Proposta de emprego" />
   <header>
     <h1>Vagas de Emprego</h1>

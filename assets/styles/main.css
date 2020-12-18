@@ -16,7 +16,8 @@ body {
 
 body,
 button,
-input {
+input,
+textarea {
   font-family: 'Roboto', sans-serif;
   color: #33535F;
 }
@@ -77,7 +78,7 @@ footer a {
 }
 
 /* Home */
-.home-page-container {
+.container {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -85,7 +86,7 @@ footer a {
   height: 100vh;
 }
 
-.home-page-container header {
+.container header {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -94,23 +95,176 @@ footer a {
   text-align: center;
 }
 
-.home-page-container img {
+.container img {
   width: 45vw;
   margin-left: 50px;
 }
 
-.home-page-container header p {
+.container header p {
   margin: 2.5rem 0 3.5rem;
   line-height: calc(20px + 0.5vw);
   letter-spacing: 0.8px;
 }
 
-.home-page-container .links {
+.container .links {
   display: flex;
-  width: calc(218px + 13vw);
+  width: calc(226px + 10vw);
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+}
+
+fieldset.form-container {
+  background: #FABB1E;
+  border: none;
+  border-radius: 7px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3.3rem;
+  color: #17282F;
+}
+
+fieldset.form-container a {
+  color: #957408;
+  font-size: 1.35rem;
+  margin-top: 2rem;
+}
+
+fieldset.form-container a:hover {
+  text-decoration: underline;
+}
+
+fieldset.form-container h2 {
+  font-size: 4rem;
+  margin-bottom: 1.2rem;
+}
+
+fieldset.form-container form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+fieldset.form-container form .btn {
+  font-size: 1.8rem;
+  padding: 1rem 2.4rem;
+}
+
+fieldset.form-container form .input-container {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+fieldset.form-container form .input-radio-container {
+  margin-bottom: 1.6rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+fieldset.form-container form .input-radio-container .radio-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+fieldset.form-container form .input-radio-container .radio-container div {
+  margin: 0 8px;
+}
+
+fieldset.form-container form .input-radio-container label {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+fieldset.form-container form .input-radio-container:nth-child(2) {
+  margin-right: 1rem;
+}
+
+fieldset.form-container form .input-radio-container input {
+  text-align: center;
+  font-size: 1.55rem;
+  margin-bottom: 0.5rem;
+}
+
+fieldset.form-container form .input-container label {
+  font-size: 1.55rem;
+}
+
+fieldset.form-container form .input-container textarea {
+  max-width: 100%;
+  resize: none;
+}
+
+fieldset.form-container form .input-container input[type="text"],
+fieldset.form-container form .input-container textarea {
+  width: 100%;
+  margin-top: 0.5rem;
+  border: none;
+  background: #D59814;
+  padding: 8px;
+  font-size: 1.7rem;
+  color: black;
+  border-radius: 3px;
+}
+
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+    position: absolute;
+    left: -9999px;
+}
+[type="radio"]:checked + label,
+[type="radio"]:not(:checked) + label
+{
+    position: relative;
+    padding-left: 28px;
+    cursor: pointer;
+    line-height: 20px;
+    display: inline-block;
+}
+[type="radio"]:checked + label:before,
+[type="radio"]:not(:checked) + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border: 1px solid #ddd;
+    border-radius: 100%;
+    background: #fff;
+}
+[type="radio"]:checked + label:after,
+[type="radio"]:not(:checked) + label:after {
+    content: '';
+    width: 12px;
+    height: 12px;
+    background: #F26162;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    border-radius: 100%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+[type="radio"]:not(:checked) + label:after {
+    opacity: 0;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+}
+[type="radio"]:checked + label:after {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
 }
 
 @media (min-width: 1900px) {
@@ -124,13 +278,13 @@ footer a {
     font-size: 95%;
   }
 
-  .home-page-container .links {
+  .container .links {
     width: calc(350px + 13vw);
   }
 }
 
 @media (min-height: 900px) and (max-width: 1500px) {
-  .home-page-container {
+  .container {
     flex-direction: column;
   }
 }
@@ -151,21 +305,29 @@ footer a {
     font-size: 5rem;
   }
 
-  .home-page-container {
+  .container {
     flex-direction: column;
   }
 
-  .home-page-container img {
+  .container img {
     width: 70vw;
     margin: 0;
   }
 
-  .home-page-container header {
+  .container header {
     width: 90vw;
   }
 
-  .home-page-container header p {
+  .container header p {
     margin: 2rem 0;
+  }
+}
+
+@media (max-width: 550px) {
+  fieldset.form-container {
+    border-radius: 0;
+    width: 100%;
+    height: 100vh;
   }
 }
 
@@ -176,10 +338,31 @@ footer a {
 }
 
 @media (max-height: 550px) {
+  html {
+    font-size: 42.5%;
+  }
+
+  body {
+    overflow: hidden;
+  }
+
+  .container img {
+    width: 65vw;
+    margin: 0;
+    margin-top: -40px;
+  }
+
+  .container header p {
+    line-height: 15px;
+  }
+
+  .container .links {
+    width: calc(240px + 2vw);
+  }
+
   footer {
     position: static;
     bottom: 0;
     margin-top: 10px;
-    margin-bottom: -10px;
   }
 }
